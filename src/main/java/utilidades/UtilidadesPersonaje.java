@@ -27,6 +27,15 @@ public class UtilidadesPersonaje {
         return personajeEvo;
         }
 
+    public static void levelTo(Personaje personaje, Integer nivelDeseado){
+
+        personaje.setNivel(nivelDeseado);
+        personaje.setVida(personaje.getVidaBase() + personaje.getEscalabilidad().getIncrementoSaludNivel() *nivelDeseado);
+        personaje.setMana(personaje.getManaBase() + personaje.getEscalabilidad().getIncrementoManaNivel() * nivelDeseado);
+        personaje.setDefensa(personaje.getDefensaBase() + personaje.getEscalabilidad().getIncrementoDefensaNivel() * nivelDeseado);
+        personaje.setAtaque(personaje.getAtaqueBase() + personaje.getEscalabilidad().getIncrementoDanyoNivel() * nivelDeseado);
+    }
+
     public Map<Region, List<Personaje>> getPersonajesPorRegion(List<Personaje> personajes){
         Map<Region, List<Personaje>> personajesPorRegion = new HashMap<>();
         for (Personaje personaje : personajes){
